@@ -1,0 +1,58 @@
+﻿@page
+@model TGLWebApp.Pages.Students.IndexModel
+@addTagHelper*,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+
+<h1>Students</h1>
+
+<form method="post">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>LastName</th>
+                <th>Nit</th>
+                <th>Age</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+
+                    <td>
+                        @student.Id
+                    </td>
+                    <td>
+                        @student.Name
+                    </td>
+                    <td>
+                        @student.LastName
+                    </td>
+                    <td>
+                        @student.Nit
+                    </td>
+                    <td>
+                        @student.Age
+                    </td>
+                    <td>
+                        <button type="submit" 
+                                asp-page-handler="delete" 
+                                asp-route-id="@student.Id"
+                                class="btn btn-danger">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</form>
