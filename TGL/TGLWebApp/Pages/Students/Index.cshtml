@@ -8,7 +8,7 @@
 
 <form method="post">
 
-    <table class="table table-bordered">
+    <table >
         <thead>
             <tr>
                 <th>ID</th>
@@ -25,38 +25,45 @@
 
             @foreach (var student in Model.Students)
             {
-                <tr>
+            <tr>
 
-                    <td>
-                        @student.Id
-                    </td>
-                    <td>
-                        @student.Name
-                    </td>
-                    <td>
-                        @student.LastName
-                    </td>
-                    <td>
-                        @student.Nit
-                    </td>
-                    <td>
-                        @student.Age
-                    </td>
-                    <td>
-                        <button type="submit" 
-                                asp-page-handler="delete" 
-                                asp-route-id="@student.Id"
-                                class="btn btn-danger">
-                            Delete
-                        </button>
-                    </td>
-                </tr>
+                <td>
+                    @student.Id
+                </td>
+                <td>
+                    @student.Name
+                </td>
+                <td>
+                    @student.LastName
+                </td>
+                <td>
+                    @student.Nit
+                </td>
+                <td>
+                    @student.Age
+                </td>
+                <td>
+                    <a asp-page="Edit"
+                       asp-route-id="@student.Id"
+                       class="btn blue-grey darken-2 text-white"
+                       >
+                    Edit
+                    </a>
+                
+                    <button type="submit"
+                            asp-page-handler="delete"
+                            asp-route-id="@student.Id"
+                            class="btn red darken-2 text-white">
+                        Delete
+                    </button>
+                </td>
+            </tr>
 
             }
         </tbody>
     </table>
 </form>
 
+<br />
 
-
-<a asp-page="Add">Create new student</a>
+<a asp-page="Add" class="light-blue darken-1 text-white btn">Create new student</a>

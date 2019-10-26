@@ -1,12 +1,13 @@
 ﻿@page
-@model TGLWebApp.Pages.Students.AddModel
+@model TGLWebApp.Pages.Students.EditModel
 @{
-    ViewData["Title"] = "Add";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Add student</h1>
+<h1>Edit student</h1>
 
 <form method="post">
+    <input hidden asp-for="Student.Id"/>
     Name
     <input asp-for="Student.Name" />
     LastName
