@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,31 +14,6 @@ namespace TGLWebApp.Data
         public StudentStore(TGLContext context)
         {
             Context = context;
-            /*
-            Students.Add(new Student
-            {
-                Id= Guid.NewGuid(),
-                Age = 24,
-                Name = "John",
-                LastName = "David",
-                Nit = "12341234"
-            });
-            Students.Add(new Student
-            {
-                Id = Guid.NewGuid(),
-                Age = 24,
-                Name = "Pedro",
-                LastName = "Andres",
-                Nit = "432134"
-            });
-            Students.Add(new Student
-            {
-                Id = Guid.NewGuid(),
-                Age = 24,
-                Name = "Alguien",
-                LastName = "En serio",
-                Nit = "235423"
-            });*/
         }
 
         internal void EditStudent(Student student)
@@ -71,7 +47,7 @@ namespace TGLWebApp.Data
 
         public List<Student> GetStudents()
         {
-            return Context.Student.ToList();
+            return Context.Student.Include(x => x.Computers).ToList();
         }
     }
 }

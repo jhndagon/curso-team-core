@@ -16,6 +16,7 @@
                 <th>LastName</th>
                 <th>Nit</th>
                 <th>Age</th>
+                <th>Computers</th>
                 <th>Action</th>
 
             </tr>
@@ -43,19 +44,30 @@
                     @student.Age
                 </td>
                 <td>
+                    @foreach(var computer in student.Computers)
+                    {
+                        <p>computer.Brand</p>
+                    }
+                </td>
+                <td>
                     <a asp-page="Edit"
                        asp-route-id="@student.Id"
-                       class="btn blue-grey darken-2 text-white"
-                       >
-                    Edit
+                       class="btn blue-grey darken-2 text-white">
+                        Edit
                     </a>
-                
+
                     <button type="submit"
                             asp-page-handler="delete"
                             asp-route-id="@student.Id"
                             class="btn red darken-2 text-white">
                         Delete
                     </button>
+
+                    <a asp-page="../Computers/Add"
+                       asp-route-id="@student.Id"
+                       class="btn blue-grey blue-2 text-white">
+                        Add Computer
+                    </a>
                 </td>
             </tr>
 

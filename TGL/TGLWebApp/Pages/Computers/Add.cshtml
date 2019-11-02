@@ -1,0 +1,22 @@
+﻿@page
+@model TGLWebApp.Pages.Computers.AddModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add Conmputer</h1>
+
+<form method="post">
+    <input asp-for="StudentId" hidden/>
+    Brand
+    <input asp-for="Computer.Brand" />
+    Model
+    <input asp-for="Computer.Model" />
+    Cpu
+    <input asp-for="Computer.Cpu" />
+    Ram
+    <input asp-for="Computer.Ram" />
+    <button type="submit" class=" btn green text-white">Save</button>
+</form>
+
+<br />
